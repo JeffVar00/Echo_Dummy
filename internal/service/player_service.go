@@ -37,13 +37,6 @@ func (s *serv) ShowPlayers(ctx context.Context) ([]models.Player, error) {
 		players = append(players, new_player)
 	}
 
-	// THIS IS DONE IN THE API LAYER
-	// Convert the data to a JSON string
-	// playersData, err := json.Marshal(players)
-	// if err != nil {
-	// 	return nil, ErrCreatingJSON
-	// }
-
 	return players, nil
 
 }
