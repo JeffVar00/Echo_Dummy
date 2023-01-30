@@ -17,7 +17,7 @@ func New(ctx context.Context, s *settings.Settings) (*sqlx.DB, error) {
 		s.DB.User,
 		s.DB.Password,
 		s.DB.Host,
-		s.DB.Port, // 1433, remove if necesary (the string conection doesnt work)
+		s.DB.Port, // 1433, remove if necesary (if the string conection doesnt work with this)
 		s.DB.Name)
 
 	return sqlx.ConnectContext(ctx, "mssql", connectionString)
