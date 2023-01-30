@@ -1,1 +1,7 @@
 port: 8080
+database:
+  host: localhost
+  port: 1433
+  user: jeff
+  password: 1234
+  name: example
