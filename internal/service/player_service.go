@@ -7,14 +7,14 @@ import (
 )
 
 var (
-	ErrReadingCSV = errors.New("an error ocurred while reading the CSV")
+	ErrCSVNotFound = errors.New("an error ocurred, CSV not found")
 )
 
-func (s *serv) ShowPlayers(ctx context.Context) ([]models.Player, error) {
+func (s *serv) ShowPlayers(ctx context.Context, filename string) ([]models.Player, error) {
 
-	records, err := s.repo.GetPlayers(ctx)
+	records, err := s.repo.GetPlayers(ctx, filename)
 	if err != nil {
-		return nil, ErrReadingCSV
+		return nil, ErrCSVNotFound
 	}
 
 	// Player slices

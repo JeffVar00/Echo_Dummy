@@ -4,6 +4,7 @@ import (
 	//"Echo_Dummy/internal/entity"
 	"context"
 	"encoding/csv"
+	"fmt"
 	"os"
 )
 
@@ -11,12 +12,15 @@ const (
 // QUERYS
 )
 
-func (r *repo) GetPlayers(ctx context.Context) ([][]string, error) {
+func (r *repo) GetPlayers(ctx context.Context, filename string) ([][]string, error) {
 
 	//LOGICA CSV READ FILE // SIMULATION OF A DATABASE EXTRACTION
 
 	// Open the CSV file
-	csvFile, err := os.Open("C:/Users/jeff0/Documents/GRW Analytics/Echo_Dummy/internal/data/data.csv")
+
+	file := fmt.Sprintf("C:/Users/jeff0/Documents/GRW Analytics/Echo_Dummy/internal/data/%s.csv", filename)
+
+	csvFile, err := os.Open(file)
 	if err != nil {
 		return nil, err
 	}

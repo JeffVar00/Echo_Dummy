@@ -10,7 +10,7 @@ import (
 //
 //go:generate mockery --name=Repository --output=repository --inpackage
 type Repository interface {
-	GetPlayers(ctx context.Context) ([][]string, error)
+	GetPlayers(ctx context.Context, filename string) ([][]string, error)
 }
 
 type repo struct {

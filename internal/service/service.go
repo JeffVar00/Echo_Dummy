@@ -12,7 +12,7 @@ import (
 //go:generate mockery --name=Service --output=service --inpackage
 type Service interface {
 	// Return the list of players from the repository in a JSON format
-	ShowPlayers(ctx context.Context) ([]models.Player, error)
+	ShowPlayers(ctx context.Context, filename string) ([]models.Player, error)
 }
 
 type serv struct {

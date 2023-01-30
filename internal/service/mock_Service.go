@@ -14,13 +14,13 @@ type MockService struct {
 	mock.Mock
 }
 
-// ShowPlayers provides a mock function with given fields: ctx
-func (_m *MockService) ShowPlayers(ctx context.Context) ([]models.Player, error) {
-	ret := _m.Called(ctx)
+// ShowPlayers provides a mock function with given fields: ctx, filename
+func (_m *MockService) ShowPlayers(ctx context.Context, filename string) ([]models.Player, error) {
+	ret := _m.Called(ctx, filename)
 
 	var r0 []models.Player
-	if rf, ok := ret.Get(0).(func(context.Context) []models.Player); ok {
-		r0 = rf(ctx)
+	if rf, ok := ret.Get(0).(func(context.Context, string) []models.Player); ok {
+		r0 = rf(ctx, filename)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).([]models.Player)
@@ -28,8 +28,8 @@ func (_m *MockService) ShowPlayers(ctx context.Context) ([]models.Player, error)
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(context.Context) error); ok {
-		r1 = rf(ctx)
+	if rf, ok := ret.Get(1).(func(context.Context, string) error); ok {
+		r1 = rf(ctx, filename)
 	} else {
 		r1 = ret.Error(1)
 	}

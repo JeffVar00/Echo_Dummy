@@ -13,13 +13,13 @@ type MockRepository struct {
 	mock.Mock
 }
 
-// GetPlayers provides a mock function with given fields: ctx
-func (_m *MockRepository) GetPlayers(ctx context.Context) ([][]string, error) {
-	ret := _m.Called(ctx)
+// GetPlayers provides a mock function with given fields: ctx, filename
+func (_m *MockRepository) GetPlayers(ctx context.Context, filename string) ([][]string, error) {
+	ret := _m.Called(ctx, filename)
 
 	var r0 [][]string
-	if rf, ok := ret.Get(0).(func(context.Context) [][]string); ok {
-		r0 = rf(ctx)
+	if rf, ok := ret.Get(0).(func(context.Context, string) [][]string); ok {
+		r0 = rf(ctx, filename)
 	} else {
 		if ret.Get(0) != nil {
 			r0 = ret.Get(0).([][]string)
@@ -27,8 +27,8 @@ func (_m *MockRepository) GetPlayers(ctx context.Context) ([][]string, error) {
 	}
 
 	var r1 error
-	if rf, ok := ret.Get(1).(func(context.Context) error); ok {
-		r1 = rf(ctx)
+	if rf, ok := ret.Get(1).(func(context.Context, string) error); ok {
+		r1 = rf(ctx, filename)
 	} else {
 		r1 = ret.Error(1)
 	}
