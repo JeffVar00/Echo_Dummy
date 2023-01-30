@@ -34,6 +34,6 @@ func New() Repository {
 // 	return &repo{db: db}
 // }
 
-//Install and use Mockery
-//go install github.com/vektra/mockery/v2@latest
-//go generate ./... //esto lo hace de forma recursiva
+//	Install and use Mockery
+//	go install github.com/vektra/mockery/v2@latest
+//	go generate ./... //esto lo hace de forma recursiva

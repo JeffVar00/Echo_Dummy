@@ -29,6 +29,7 @@ func main() {
 
 		fx.Provide(
 			context.Background,
+			//database.New,
 			settings.New,
 			repository.New,
 			service.New,
@@ -55,6 +56,7 @@ func setLifeCycle(lc fx.Lifecycle, a *api.API, s *settings.Settings, e *echo.Ech
 
 			// Start the server
 			go a.Start(e, address)
+
 			return nil
 
 		},

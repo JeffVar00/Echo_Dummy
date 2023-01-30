@@ -7,8 +7,7 @@ import (
 )
 
 var (
-	ErrCreatingJSON = errors.New("an error ocurred while creating the JSON")
-	ErrReadingCSV   = errors.New("an error ocurred while reading the CSV")
+	ErrReadingCSV = errors.New("an error ocurred while reading the CSV")
 )
 
 func (s *serv) ShowPlayers(ctx context.Context) ([]models.Player, error) {
@@ -22,10 +21,12 @@ func (s *serv) ShowPlayers(ctx context.Context) ([]models.Player, error) {
 	players := []models.Player{}
 
 	// Convert the CSV records into Players
-	for i, record := range records {
-		if i == 0 {
-			continue
-		}
+	for _, record := range records {
+
+		// If the csv have headers with this you skip them after you save them for future purposes, if necesary
+		// if i == 0 {
+		// 	continue
+		// }
 
 		new_player := models.Player{
 			PlayerId: record[0],
