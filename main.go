@@ -1,6 +1,7 @@
 package main
 
 import (
+	"Echo_Dummy/database"
 	"Echo_Dummy/internal/api"
 	"Echo_Dummy/internal/repository"
 	"Echo_Dummy/internal/service"
@@ -29,7 +30,7 @@ func main() {
 
 		fx.Provide(
 			context.Background,
-			//database.New,
+			database.New,
 			settings.New,
 			repository.New,
 			service.New,
