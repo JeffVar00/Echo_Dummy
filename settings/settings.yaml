@@ -4,4 +4,4 @@ database:
   port: 1433
   user: jeff
   password: 1234
-  name: example
+  name: AdventureWorks2019

@@ -22,6 +22,9 @@ import (
 // Request:
 // URL: http://localhost/getPlayers
 
+// Library used for dependency inyection:
+// go get go.uber.org/fx@v1
+
 func main() {
 
 	app := fx.New(

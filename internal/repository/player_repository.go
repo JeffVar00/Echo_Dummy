@@ -14,11 +14,11 @@ const (
 
 func (r *repo) GetPlayers(ctx context.Context, filename string) ([][]string, error) {
 
-	//LOGICA CSV READ FILE // SIMULATION OF A DATABASE EXTRACTION
+	// LOGIC CSV READ FILE // SIMULATION OF A DATABASE EXTRACTION
 
 	// Open the CSV file
 
-	file := fmt.Sprintf("C:/Users/jeff0/Documents/GRW Analytics/Echo_Dummy/internal/data/%s.csv", filename)
+	file := fmt.Sprintf("C:/Users/HP/Documents/Projects/Echo_Dummy/internal/data/%s.csv", filename)
 
 	csvFile, err := os.Open(file)
 	if err != nil {
