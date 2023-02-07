@@ -5,6 +5,7 @@ import (
 
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 // VALIDATORS
@@ -24,5 +25,12 @@ func New(serv service.Service) *API {
 
 func (a *API) Start(e *echo.Echo, address string) error {
 	a.RegisterRoutes(e)
+
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins:     []string{"*"},
+		AllowHeaders:     []string{echo.HeaderContentType},
+		AllowMethods:     []string{echo.POST},
+		AllowCredentials: true}))
+
 	return e.Start(address)
 }
