@@ -3,8 +3,6 @@ package repository
 import (
 	//"Echo_Dummy/internal/entity"
 	"context"
-
-	"github.com/jmoiron/sqlx"
 )
 
 // Repository is the interface that wraps the basic CRUD methods
@@ -21,13 +19,17 @@ type Repository interface {
 
 // Database Interface for Repository
 type repo struct {
-	db *sqlx.DB
+	//db *sqlx.DB
+}
+
+func New() Repository {
+	return &repo{}
 }
 
 // Init Repository
-func New(db *sqlx.DB) Repository {
-	return &repo{db: db}
-}
+// func New(db *sqlx.DB) Repository {
+// 	return &repo{db: db}
+// }
 
 //	Install and use Mockery
 //	go install github.com/vektra/mockery/v2@latest
